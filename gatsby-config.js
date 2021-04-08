@@ -14,6 +14,34 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-mysql`,
+      options: {
+        connectionDetails: {
+          host: "66.147.244.101",
+          user: process.env.MY_ENV_VAR,
+          password: process.env.FUCK,
+          database: "uxlaunch_general",
+        },
+        queries: [
+          {
+            statement: "SELECT * FROM enthusiasticpanther_songs",
+            idFieldName: "id",
+            name: "songs",
+          },
+          {
+            statement: "SELECT * FROM enthusiasticpanther_shows",
+            idFieldName: "id",
+            name: "shows",
+          },
+          {
+            statement: "SELECT * FROM enthusiasticpanther_songperformances",
+            idFieldName: "id",
+            name: "songperformances",
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
