@@ -3,6 +3,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const path = require("path")
   const songTemplate = path.resolve(`src/templates/songs.js`)
+  const showTemplate = path.resolve(`src/templates/shows.js`)
   const result = await graphql(`
     query songQuery {
       allMysqlSongs {
@@ -12,9 +13,26 @@ exports.createPages = async ({ graphql, actions }) => {
             name
           }
         }
-      }
+      }      
+      allMysqlShows {
+        edges {
+          node {
+            mysqlId
+            location
+          }
+        }
+      }      
     }
   `)
+  result.data.allMysqlShows.edges.forEach(edge => {
+    const slug = edge.node.mysqlId
+    createPage({
+      path: `/show/${slug}`,
+      component: showTemplate,
+      context: { slug: slug },
+    })
+  })
+  
   result.data.allMysqlSongs.edges.forEach(edge => {
     const slug = edge.node.mysqlId
     createPage({
@@ -24,29 +42,3 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
-
-/*
-query showQuery {
-  allMysqlShows {
-    nodes {
-      location
-      quality
-      date
-      mysqlId
-    }
-  }
-}
-*/
-
-/*
-query showQuery {
-  allMysqlSongperformances {
-    nodes {
-      quality
-      showid
-      songid
-      mysqlId
-    }
-  }
-}
-*/
