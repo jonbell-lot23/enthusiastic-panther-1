@@ -595,3 +595,10 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+//
+div.song {
+  float: left;
+  border: 1px solid #eee;
+  width: 200px;
+}

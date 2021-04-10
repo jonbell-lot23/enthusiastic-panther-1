@@ -31,12 +31,16 @@ const Layout = ({ children }) => {
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+          clear: `both`,
+          display: `block`,
         }}
       >
         <main>{children}</main>
         <footer
           style={{
             marginTop: `2rem`,
+            clear: `both`,
+            display: `none`,
           }}
         >
           © {new Date().getFullYear()}, Built with
