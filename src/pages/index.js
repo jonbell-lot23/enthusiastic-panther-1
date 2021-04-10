@@ -7,12 +7,14 @@ export default function Index() {
     query PantherQuery {
       allMysqlSongs {
         nodes {
+          mysqlId
           name
         }
       }
 
       allMysqlShows {
         nodes {
+          mysqlId
           location
         }
       }
@@ -41,7 +43,8 @@ export default function Index() {
             const location = show.location
 
             return (
-              <div
+              <a
+                href={"/show/" + show.mysqlId}
                 style={{
                   float: `left`,
                   border: `1px solid #eee`,
@@ -50,7 +53,7 @@ export default function Index() {
                 }}
               >
                 {show.location}
-              </div>
+              </a>
             )
           })}
         </div>
@@ -112,7 +115,8 @@ export default function Index() {
             const name = song.name
 
             return (
-              <div
+              <a
+                href={"/song/" + song.mysqlId}
                 style={{
                   float: `left`,
                   border: `1px solid #eee`,
@@ -121,7 +125,7 @@ export default function Index() {
                 }}
               >
                 {song.name}
-              </div>
+              </a>
             )
           })}
         </div>
