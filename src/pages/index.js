@@ -1,12 +1,25 @@
-import * as React from "react"
-
+import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
-
-const IndexPage = () => (
-  <Layout>
-    <h1>Enthusiastic Panther</h1>
-    <p>This is a new site. Good luck, me!</p>
-  </Layout>
-)
-
-export default IndexPage
+export default function Index({ data }) {
+  const show = data.mysqlSongs
+  return (
+    <Layout>
+      <div>
+        <h1>Blah blah blah</h1>
+      </div>
+    </Layout>
+  )
+}
+export const query = graphql`
+  query PantherQuery {
+    mysqlSongs {
+      name
+    }
+    allMysqlSongs(limit: 5) {
+      nodes {
+        name
+      }
+    }
+  }
+`
