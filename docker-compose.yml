@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  mysql:
+    container_name: uxlaunch_general
+    image: mysql:5.7
+    restart: always
+    ports:
+      - ${DB_PORT}:3306
+    volumes:
+      - uxlaunch_general_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    networks:
+      - default
+  
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 192.168.11.0/24
+  
+
+volumes:
+    uxlaunch_general_data:

@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Enthusiastic Panther`,
@@ -18,10 +20,11 @@ module.exports = {
       resolve: `gatsby-source-mysql`,
       options: {
         connectionDetails: {
-          host: "66.147.244.101",
-          user: process.env.MY_ENV_VAR,
-          password: process.env.FUCK,
-          database: "uxlaunch_general",
+          host: process.env.DB_HOST,
+          user: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          port: process.env.DB_PORT,
+          database: process.env.DB_DATABASE
         },
         queries: [
           {
