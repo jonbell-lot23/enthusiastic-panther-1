@@ -42,3 +42,20 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions
+  const typeDefs = [
+    `type MysqlSongperformances implements Node { 
+      songs: MysqlSongs @link(by: "mysqlId", from: "songid")
+      shows: MysqlShows @link(by: "mysqlId", from: "showid")
+    }`,
+    `type MysqlSongs implements Node { 
+      performances: [MysqlSongperformances] @link(by: "songid", from: "mysqlId")
+    }`,
+    `type MysqlShows implements Node { 
+      performances: [MysqlSongperformances] @link(by: "showid", from: "mysqlId")
+    }`,
+  ]
+  createTypes(typeDefs)
+}
