@@ -40,8 +40,6 @@ export default function Index() {
           }}
         >
           {shows.map(show => {
-            const location = show.location
-
             return (
               <a
                 href={"/show/" + show.mysqlId}
@@ -51,59 +49,15 @@ export default function Index() {
                   padding: `.3em`,
                   margin: `.2em`,
                 }}
+                key={show.mysqlId}
               >
                 {show.location}
               </a>
             )
           })}
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>and has {songs.length} songs </h1>
+
+        <h1 style={{paddingTop: `1em`, clear: `both`}}>and has {songs.length} songs </h1>
 
         <div
           style={{
@@ -112,8 +66,6 @@ export default function Index() {
           }}
         >
           {songs.map(song => {
-            const name = song.name
-
             return (
               <a
                 href={"/song/" + song.mysqlId}
@@ -123,6 +75,7 @@ export default function Index() {
                   padding: `.3em`,
                   margin: `.2em`,
                 }}
+                key={song.mysqlId}
               >
                 {song.name}
               </a>
