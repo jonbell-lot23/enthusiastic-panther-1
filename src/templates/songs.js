@@ -7,17 +7,15 @@ export default function Song({ data }) {
     <Layout>
       <div>
         <h1>{song.name_phish}</h1>
-        <h3>{song.standard_duration}</h3>
         <div>
           {song.performances.map(performance => {
             return (
               <a
-                href={"/song/" + performance.show.mysqlId}
+                href={"/show/" + performance.show.mysqlId}
                 style={{
-                  float: `left`,
-                  border: `1px solid #eee`,
-                  padding: `.3em`,
-                  margin: `.2em`,
+                  clear: `both`,
+                  display: `block`,
+                  color: `black`,
                 }}
                 key={performance.show.mysqlId}
               >
