@@ -13,14 +13,13 @@ export default function Show({ data }) {
               <a
                 href={"/song/" + performance.song.mysqlId}
                 style={{
-                  float: `left`,
-                  border: `1px solid #eee`,
-                  padding: `.3em`,
-                  margin: `.2em`,
+                  clear: `both`,
+                  display: `block`,
+                  color: `black`,
                 }}
                 key={performance.song.mysqlId}
               >
-                {performance.song.name}
+                {performance.song.name_phish}
               </a>
             )
           })}
@@ -31,12 +30,13 @@ export default function Show({ data }) {
 }
 export const query = graphql`
   query($slug: Int!) {
-    mysqlShows(mysqlId: {eq: $slug}) {
+    mysqlShows(mysqlId: { eq: $slug }) {
       location
       performances {
         song {
           mysqlId
           name
+          name_phish
         }
       }
     }

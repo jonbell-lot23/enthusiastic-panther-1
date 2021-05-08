@@ -11,9 +11,10 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             mysqlId
             name
+            name_phish
           }
         }
-      }      
+      }
       allMysqlShows {
         edges {
           node {
@@ -21,7 +22,7 @@ exports.createPages = async ({ graphql, actions }) => {
             location
           }
         }
-      }      
+      }
     }
   `)
   result.data.allMysqlShows.edges.forEach(edge => {
@@ -32,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { slug: slug },
     })
   })
-  
+
   result.data.allMysqlSongs.edges.forEach(edge => {
     const slug = edge.node.mysqlId
     createPage({
@@ -47,15 +48,15 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
   const typeDefs = [
     `type MysqlSongperformances implements Node { 
-      song: MysqlSongs @link(by: "mysqlId", from: "songid")
-      show: MysqlShows @link(by: "mysqlId", from: "showid")
-    }`,
+    song: MysqlSongs @link(by: "mysqlId", from: "songid")
+    show: MysqlShows @link(by: "mysqlId", from: "showid")
+  }`,
     `type MysqlSongs implements Node { 
-      performances: [MysqlSongperformances] @link(by: "songid", from: "mysqlId")
-    }`,
+    performances: [MysqlSongperformances] @link(by: "songid", from: "mysqlId")
+  }`,
     `type MysqlShows implements Node { 
-      performances: [MysqlSongperformances] @link(by: "showid", from: "mysqlId")
-    }`,
+    performances: [MysqlSongperformances] @link(by: "showid", from: "mysqlId")
+  }`,
   ]
   createTypes(typeDefs)
 }

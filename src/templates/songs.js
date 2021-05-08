@@ -6,7 +6,7 @@ export default function Song({ data }) {
   return (
     <Layout>
       <div>
-        <h1>{song.name}</h1>
+        <h1>{song.name_phish}</h1>
         <h3>{song.standard_duration}</h3>
         <div>
           {song.performances.map(performance => {
@@ -36,6 +36,7 @@ export const query = graphql`
       weighting
       standard_duration
       name
+      name_phish
       performances {
         show {
           mysqlId
@@ -45,4 +46,3 @@ export const query = graphql`
     }
   }
 `
-// Now I need to figure out how to get /song/10 to show all the performances and show/10 to show all songs in a playlist.

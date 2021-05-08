@@ -5,10 +5,11 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function Index() {
   const data = useStaticQuery(graphql`
     query PantherQuery {
-      allMysqlSongs {
+      allMysqlSongs(sort: { fields: performances___show___date, order: ASC }) {
         nodes {
           mysqlId
           name
+          name_phish
         }
       }
 
@@ -57,7 +58,9 @@ export default function Index() {
           })}
         </div>
 
-        <h1 style={{paddingTop: `1em`, clear: `both`}}>and has {songs.length} songs </h1>
+        <h1 style={{ paddingTop: `1em`, clear: `both` }}>
+          and has {songs.length} songs{" "}
+        </h1>
 
         <div
           style={{
@@ -77,7 +80,7 @@ export default function Index() {
                 }}
                 key={song.mysqlId}
               >
-                {song.name}
+                {song.name_phish}
               </a>
             )
           })}
