@@ -9,7 +9,7 @@ export default function Show({ data }) {
   return (
     <Layout>
       <div>
-        <h1>{show.location}</h1>
+        <h2>{show.location}</h2>
         <div>
           {show.performances.map(performance => {
             try {
@@ -23,7 +23,7 @@ export default function Show({ data }) {
                   }}
                   key={performance.song.mysqlId}
                 >
-                  {performance.song.name_phish}
+                  {performance.song.name}
                 </a>
               )
             } catch (e) {

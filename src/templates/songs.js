@@ -6,23 +6,29 @@ export default function Song({ data }) {
   return (
     <Layout>
       <div>
-        <h1>{song.name_phish}</h1>
+        <h2>
+          {song.name} has been played {song.performances.length} times
+        </h2>
         <div>
-          {song.performances.map(performance => {
-            return (
-              <a
-                href={"/show/" + performance.show.mysqlId}
-                style={{
-                  clear: `both`,
-                  display: `block`,
-                  color: `black`,
-                }}
-                key={performance.show.mysqlId}
-              >
-                {performance.show.location}
-              </a>
-            )
-          })}
+          <ol>
+            {song.performances.map(performance => {
+              return (
+                <li>
+                  <a
+                    href={"/show/" + performance.show.mysqlId}
+                    style={{
+                      clear: `both`,
+                      display: `block`,
+                      color: `black`,
+                    }}
+                    key={performance.show.mysqlId}
+                  >
+                    {performance.show.location}
+                  </a>
+                </li>
+              )
+            })}
+          </ol>
         </div>
       </div>
     </Layout>

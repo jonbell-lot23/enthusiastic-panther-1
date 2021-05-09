@@ -50,8 +50,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Enthusiastic Panther`,
+        short_name: `EP-1`,
         start_url: `/`,
         background_color: `#FF0000`,
         theme_color: `#FF0000`,
