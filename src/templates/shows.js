@@ -11,7 +11,7 @@ export default function Show({ data }) {
           {show.performances.map(performance => {
             return (
               <a
-                href={"/song/"}
+                href={"/song/" + performance.song.mysqlId}
                 style={{
                   clear: `both`,
                   display: `block`,
