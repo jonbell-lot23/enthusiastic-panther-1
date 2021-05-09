@@ -80,7 +80,7 @@ export default function Index() {
                 }}
                 key={song.mysqlId}
               >
-                {song.name_phish}
+                {song.name}
               </a>
             )
           })}
