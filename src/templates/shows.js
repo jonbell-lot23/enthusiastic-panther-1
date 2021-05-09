@@ -1,6 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+
+let isHandlingError = false
+
 export default function Show({ data }) {
   const show = data.mysqlShows
   return (
@@ -9,19 +12,26 @@ export default function Show({ data }) {
         <h1>{show.location}</h1>
         <div>
           {show.performances.map(performance => {
-            return (
-              <a
-                href={"/song/" + performance.song.mysqlId}
-                style={{
-                  clear: `both`,
-                  display: `block`,
-                  color: `black`,
-                }}
-                key={performance.song.mysqlId}
-              >
-                {performance.song.name_phish}
-              </a>
-            )
+            try {
+              return (
+                <a
+                  href={"/song/" + performance.song.mysqlId}
+                  style={{
+                    clear: `both`,
+                    display: `block`,
+                    color: `black`,
+                  }}
+                  key={performance.song.mysqlId}
+                >
+                  {performance.song.name_phish}
+                </a>
+              )
+            } catch (e) {
+              if (isHandlingError) {
+                // our error handling code threw an error. just throw now
+                throw e
+              }
+            }
           })}
         </div>
       </div>
