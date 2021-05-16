@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 export default function Index() {
   const data = useStaticQuery(graphql`
     query PantherQuery {
-      allMysqlSongs(sort: { fields: performances___show___date, order: ASC }) {
+      allMysqlSongs(sort: { fields: performances___show___date, order: DESC }) {
         nodes {
           mysqlId
           name
@@ -13,7 +13,7 @@ export default function Index() {
         }
       }
 
-      allMysqlShows {
+      allMysqlShows(sort: {fields: date, order: DESC}) {
         nodes {
           mysqlId
           location
