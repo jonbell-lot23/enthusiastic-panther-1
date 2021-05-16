@@ -55,7 +55,7 @@ export default function Index() {
                 }}
                 key={show.mysqlId}
               >
-                {show.location}
+                {show.mysqlId}dddddd {show.location}
               </a>
             )
           })}

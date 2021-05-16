@@ -27,11 +27,7 @@ export default function Show({ data }) {
               return (
                 <a
                   href={"/song/" + performance.song.mysqlId}
-                  style={{
-                    clear: `both`,
-                    display: `block`,
-                    color: `black`,
-                  }}
+                  class="show"
                   key={performance.song.mysqlId}
                 >
                   {performance.song.name} {qualityRender(performance.quality)}

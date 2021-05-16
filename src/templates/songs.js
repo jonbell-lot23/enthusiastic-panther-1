@@ -27,12 +27,8 @@ export default function Song({ data }) {
               return (
                 <li>
                   <a
-                    href={"/show/" + performance.show.mysqlId}
-                    style={{
-                      clear: `both`,
-                      display: `block`,
-                      color: `black`,
-                    }}
+                    href={"/show/" + performance.show.mysqlId}                    
+                      class="song"                    
                     key={performance.show.mysqlId}
                   >
                     {performance.show.location} {qualityRender(performance.quality)}

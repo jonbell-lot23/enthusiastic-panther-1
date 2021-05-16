@@ -601,6 +601,23 @@ div.song {
   width: 200px;
 }
 
+a.show, a.song
+{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+a.show:hover, a.song:hover
+{
+  color: red;
+}
+
+a.show:visited, a.song:visited
+{
+  color: purple;
+}
+
 .flex-container {
   display: flex;
   flex-wrap: nowrap;
