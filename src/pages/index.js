@@ -49,13 +49,10 @@ export default function Index() {
             return (
               <a
                 href={"/show/" + show.mysqlId}
-                style={{
-                  display: `block`,
-                  clear: `both`,
-                }}
+                class="show"
                 key={show.mysqlId}
               >
-                {show.mysqlId}dddddd {show.location}
+                {show.mysqlId}. {show.location}
               </a>
             )
           })}
@@ -77,10 +74,7 @@ export default function Index() {
             return (
               <a
                 href={"/song/" + song.mysqlId}
-                style={{
-                  display: `block`,
-                  clear: `both`,
-                }}
+                class="song"
                 key={song.mysqlId}
               >
                 {song.name}
