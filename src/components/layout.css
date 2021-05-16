@@ -598,7 +598,15 @@ pre tt:after {
 
 //
 div.song {
-  float: left;
-  border: 1px solid #eee;
   width: 200px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-container > .column {
+  width: 50%;
+  margin: 10px;
 }

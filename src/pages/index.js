@@ -32,8 +32,13 @@ export default function Index() {
           display: `block`,
         }}
       >
-        <h1>This band has played {shows.length} shows</h1>
+        
 
+        <div className="flex-container">
+          
+          <div className="column">
+          <h1>{shows.length} shows</h1>
+          
         <div
           style={{
             clear: `both`,
@@ -45,10 +50,8 @@ export default function Index() {
               <a
                 href={"/show/" + show.mysqlId}
                 style={{
-                  float: `left`,
-                  border: `1px solid #eee`,
-                  padding: `.3em`,
-                  margin: `.2em`,
+                  display: `block`,
+                  clear: `both`,
                 }}
                 key={show.mysqlId}
               >
@@ -58,8 +61,10 @@ export default function Index() {
           })}
         </div>
 
-        <h1 style={{ paddingTop: `1em`, clear: `both` }}>
-          and has {songs.length} songs{" "}
+        </div>
+        <div className="column">
+        
+        <h1>{songs.length} songs{" "}
         </h1>
 
         <div
@@ -73,10 +78,8 @@ export default function Index() {
               <a
                 href={"/song/" + song.mysqlId}
                 style={{
-                  float: `left`,
-                  border: `1px solid #eee`,
-                  padding: `.3em`,
-                  margin: `.2em`,
+                  display: `block`,
+                  clear: `both`,
                 }}
                 key={song.mysqlId}
               >
@@ -84,6 +87,8 @@ export default function Index() {
               </a>
             )
           })}
+          </div>
+        </div>
         </div>
       </div>
     </Layout>
