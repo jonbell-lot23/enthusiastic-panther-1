@@ -3,6 +3,18 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 export default function Song({ data }) {
   const song = data.mysqlSongs
+  
+  function qualityRender(quality)
+  {
+    if (quality > 75) {
+      return ("✨")
+    } else if (quality < 45) {
+      return ("📛")
+    }else {
+      return 
+    }
+  }
+  
   return (
     <Layout>
       <div>
@@ -23,8 +35,8 @@ export default function Song({ data }) {
                     }}
                     key={performance.show.mysqlId}
                   >
-                    {performance.show.location}
-                  </a>
+                    {performance.show.location} {qualityRender(performance.quality)}
+                  </a> 
                 </li>
               )
             })}
@@ -46,6 +58,7 @@ export const query = graphql`
           mysqlId
           location
         }
+        quality
       }
     }
   }

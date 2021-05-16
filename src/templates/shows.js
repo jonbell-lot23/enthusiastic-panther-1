@@ -4,6 +4,17 @@ import Layout from "../components/layout"
 
 let isHandlingError = false
 
+function qualityRender(quality)
+{
+  if (quality > 75) {
+    return ("✨")
+  } else if (quality < 45) {
+    return ("📛")
+  }else {
+    return 
+  }
+}
+
 export default function Show({ data }) {
   const show = data.mysqlShows
   return (
@@ -23,7 +34,7 @@ export default function Show({ data }) {
                   }}
                   key={performance.song.mysqlId}
                 >
-                  {performance.song.name_phish}
+                  {performance.song.name} {qualityRender(performance.quality)}
                 </a>
               )
             } catch (e) {
@@ -48,6 +59,7 @@ export const query = graphql`
           name
           name_phish
         }
+        quality
       }
     }
   }
