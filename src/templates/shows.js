@@ -10,6 +10,8 @@ export default function Show({ data }) {
     <Layout>
       <div>
         <h2>{show.location}</h2>
+
+        <h3>{this.props.location.query.color}</h3>
         <div>
           {show.performances.map(performance => {
             try {
@@ -23,7 +25,7 @@ export default function Show({ data }) {
                   }}
                   key={performance.song.mysqlId}
                 >
-                  {performance.song.name}
+                  {performance.song.name_phish}
                 </a>
               )
             } catch (e) {
