@@ -11,7 +11,6 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             mysqlId
             name
-            name_phish
           }
         }
       }
@@ -26,22 +25,52 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   result.data.allMysqlShows.edges.forEach(edge => {
-    const slug = edge.node.mysqlId
+    const showid = edge.node.mysqlId
     createPage({
-      path: `/show/${slug}`,
+      path: `/show/${showid}`,
       component: showTemplate,
-      context: { slug: slug },
+      context: { showid: showid },
     })
   })
 
   result.data.allMysqlSongs.edges.forEach(edge => {
-    const slug = edge.node.mysqlId
+    const songid = edge.node.mysqlId
     createPage({
-      path: `/song/${slug}`,
+      path: `/song/${songid}`,
       component: songTemplate,
-      context: { slug: slug },
+      context: { songid: songid },
     })
   })
+
+  const bands = await graphql(`
+    query bandsQuery {
+      allMysqlBands {
+        nodes {
+          mysqlId
+          name
+          songs {
+            mysqlId
+            bandid
+          }
+        }
+      }
+    }
+  `)
+
+  const band_showTemplate = path.resolve(`src/templates/bands/shows.js`)
+
+  bands.data.allMysqlBands.nodes.forEach(band => {
+    // for each band, for each show
+    result.data.allMysqlShows.edges.forEach(show => {
+      const showid = show.node.mysqlId
+      createPage({
+        path: `/band/${band.mysqlId}/show/${showid}`,
+        component: band_showTemplate,
+        context: { band: band, show: show.node, showid: showid, bandid: band.mysqlId }
+      })
+    })
+  })
+
 }
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
@@ -53,10 +82,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   }`,
     `type MysqlSongs implements Node { 
     performances: [MysqlSongperformances] @link(by: "songid", from: "mysqlId")
+    bands: [MysqlBands] @link(by: "mysqlId", from: "bandid")
   }`,
     `type MysqlShows implements Node { 
     performances: [MysqlSongperformances] @link(by: "showid", from: "mysqlId")
   }`,
+    `type MysqlBands implements Node {
+    songs: [MysqlSongs] @link(by: "bandid", from: "mysqlId")
+    }`
   ]
   createTypes(typeDefs)
 }
