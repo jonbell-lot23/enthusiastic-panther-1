@@ -28,25 +28,20 @@ module.exports = {
         },
         queries: [
           {
-            statement: "SELECT * FROM songs",
+            statement: "SELECT * FROM enthusiasticpanther_songs",
             idFieldName: "id",
             name: "songs",
           },
           {
-            statement: "SELECT * FROM shows",
+            statement: "SELECT * FROM enthusiasticpanther_shows",
             idFieldName: "id",
             name: "shows",
           },
           {
-            statement: "SELECT * FROM songperformances",
+            statement: "SELECT * FROM enthusiasticpanther_songperformances",
             idFieldName: "id",
             name: "songperformances",
           },
-          {
-            statement: "SELECT * FROM bands",
-            idFieldName: "id",
-            name: "bands"
-          }
         ],
       },
     },

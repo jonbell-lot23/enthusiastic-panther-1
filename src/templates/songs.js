@@ -43,11 +43,12 @@ export default function Song({ data }) {
   )
 }
 export const query = graphql`
-  query($songid: Int!) {
-    mysqlSongs(mysqlId: { eq: $songid }) {
+  query($slug: Int!) {
+    mysqlSongs(mysqlId: { eq: $slug }) {
       weighting
       standard_duration
       name
+      name_phish
       performances {
         show {
           mysqlId

@@ -9,6 +9,7 @@ export default function Index() {
         nodes {
           mysqlId
           name
+          name_phish
         }
       }
 
