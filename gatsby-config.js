@@ -28,17 +28,17 @@ module.exports = {
         },
         queries: [
           {
-            statement: "SELECT * FROM enthusiasticpanther_songs",
+            statement: "SELECT * FROM songs_oldformat where weighting=100",
             idFieldName: "id",
             name: "songs",
           },
           {
-            statement: "SELECT * FROM enthusiasticpanther_shows",
+            statement: "SELECT * FROM shows",
             idFieldName: "id",
             name: "shows",
           },
           {
-            statement: "SELECT * FROM enthusiasticpanther_songperformances",
+            statement: "SELECT * FROM songperformances",
             idFieldName: "id",
             name: "songperformances",
           },

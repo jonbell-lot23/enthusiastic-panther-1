@@ -6258,6 +6258,15 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"gatsby-image@*":
+  "integrity" "sha512-1Hh4VWmNBAig3WOwNKwgkmXxg2SYPbGZ11qJBzGp0igfQsBnNw1XkmfDwACfhIbxRSKSaN6gbgQgOOpQau4NtA=="
+  "resolved" "https://registry.npmjs.org/gatsby-image/-/gatsby-image-3.6.0.tgz"
+  "version" "3.6.0"
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    "object-fit-images" "^3.2.4"
+    "prop-types" "^15.7.2"
+
 "gatsby-legacy-polyfills@^0.7.1":
   "integrity" "sha512-yOQtX72GSJxloyUZEary3ZBihz/+a3uouLiaZKk6dHOeUHnRkQkXD+UT/zt7Xm+er/VD3KRsQQv+Re1krpbY7g=="
   "resolved" "https://registry.npmjs.org/gatsby-legacy-polyfills/-/gatsby-legacy-polyfills-0.7.1.tgz"
@@ -9754,6 +9763,11 @@
     "copy-descriptor" "^0.1.0"
     "define-property" "^0.2.5"
     "kind-of" "^3.0.3"
+
+"object-fit-images@^3.2.4":
+  "integrity" "sha512-G+7LzpYfTfqUyrZlfrou/PLLLAPNC52FTy5y1CBywX+1/FkxIloOyQXBmZ3Zxa2AWO+lMF0JTuvqbr7G5e5CWg=="
+  "resolved" "https://registry.npmjs.org/object-fit-images/-/object-fit-images-3.2.4.tgz"
+  "version" "3.2.4"
 
 "object-hash@^1.1.4":
   "integrity" "sha512-OSuu/pU4ENM9kmREg0BdNrUDIl1heYa4mBZacJc+vVWz4GtAwu7jO8s4AIt2aGRUTqxykpWzI3Oqnsm13tTMDA=="
@@ -13503,6 +13517,11 @@
   "integrity" "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c="
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
+
+"typescript@>=2.7", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta":
+  "integrity" "sha512-zZ4hShnmnoVnAHpVHWpTcxdv7dWP60S2FsydQLV8V5PbS3FifjWFFRiHSWpDJahly88PRyV5teTSLoq4eG7mKw=="
+  "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.3.2.tgz"
+  "version" "4.3.2"
 
 "unbox-primitive@^1.0.0":
   "integrity" "sha512-tZU/3NqK3dA5gpE1KtyiJUrEB0lxnGkMFHptJ7q6ewdZ8s12QrODwNbhIJStmJkd1QDXa1NRA8aF2A1zk/Ypyw=="

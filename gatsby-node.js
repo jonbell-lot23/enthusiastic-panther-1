@@ -11,7 +11,6 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             mysqlId
             name
-            name_phish
           }
         }
       }

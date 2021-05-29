@@ -4,14 +4,13 @@ import Layout from "../components/layout"
 
 let isHandlingError = false
 
-function qualityRender(quality)
-{
+function qualityRender(quality) {
   if (quality > 75) {
-    return ("✨")
+    return "✨"
   } else if (quality < 45) {
-    return ("📛")
-  }else {
-    return 
+    return "📛"
+  } else {
+    return
   }
 }
 
@@ -53,7 +52,6 @@ export const query = graphql`
         song {
           mysqlId
           name
-          name_phish
         }
         quality
       }
