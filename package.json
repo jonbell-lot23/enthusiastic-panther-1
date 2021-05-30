@@ -1,7 +1,7 @@
 {
-  "name": "Enthusiastic Panther",
+  "name": "enthusiastic_panther",
   "private": true,
-  "description": "A made up band",
+  "description": "A made-up band",
   "version": "0.1.0",
   "author": "Jon Bell <jb@lot23.com>",
   "dependencies": {
