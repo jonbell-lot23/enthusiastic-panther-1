@@ -8,7 +8,7 @@ function qualityRender(quality) {
   if (quality > 75) {
     return "✨"
   } else if (quality < 45) {
-    return "📛"
+    return "🌧"
   } else {
     return
   }
@@ -29,7 +29,8 @@ export default function Show({ data }) {
                   class="show"
                   key={performance.song.mysqlId}
                 >
-                  {performance.song.name} {qualityRender(performance.quality)}
+                  {performance.song.name_phish}{" "}
+                  {qualityRender(performance.quality)}
                 </a>
               )
             } catch (e) {
@@ -52,6 +53,7 @@ export const query = graphql`
         song {
           mysqlId
           name
+          name_phish
         }
         quality
       }
