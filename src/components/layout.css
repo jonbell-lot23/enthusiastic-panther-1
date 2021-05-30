@@ -601,21 +601,21 @@ div.song {
   width: 200px;
 }
 
-a.show, a.song
-{
+a.show,
+a.song {
   display: block;
   text-decoration: none;
   color: black;
 }
 
-a.show:hover, a.song:hover
-{
+a.show:hover,
+a.song:hover {
   color: red;
 }
 
-a.show:visited, a.song:visited
-{
-  color: purple;
+a.show:visited,
+a.song:visited {
+  color: #606060;
 }
 
 .flex-container {
