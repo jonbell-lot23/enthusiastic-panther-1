@@ -627,3 +627,9 @@ a.song:visited {
   width: 50%;
   margin: 10px;
 }
+
+//
+
+.showdate {
+  color: red;
+}

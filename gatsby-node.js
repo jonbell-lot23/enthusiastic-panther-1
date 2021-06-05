@@ -25,11 +25,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
   result.data.allMysqlShows.edges.forEach(edge => {
-    const slug = edge.node.mysqlId
+    const showid = edge.node.mysqlId
     createPage({
-      path: `/show/${slug}`,
+      path: `/show/${showid}`,
       component: showTemplate,
-      context: { slug: slug },
+      context: { showid: showid },
     })
   })
 

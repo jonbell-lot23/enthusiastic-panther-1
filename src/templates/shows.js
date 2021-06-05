@@ -19,7 +19,11 @@ export default function Show({ data }) {
   return (
     <Layout>
       <div>
-        <h2>{show.location}</h2>
+        <h2>
+          {show.location}
+          <br />
+          <span className="showdate">{show.date}</span>
+        </h2>
         <div>
           {show.performances.map(performance => {
             try {
@@ -46,8 +50,8 @@ export default function Show({ data }) {
   )
 }
 export const query = graphql`
-  query($slug: Int!) {
-    mysqlShows(mysqlId: { eq: $slug }) {
+  query($showid: Int!) {
+    mysqlShows(mysqlId: { eq: $showid }) {
       location
       performances {
         song {
@@ -57,6 +61,7 @@ export const query = graphql`
         }
         quality
       }
+      date(formatString: "MMMM Do, YYYY")
     }
   }
 `
